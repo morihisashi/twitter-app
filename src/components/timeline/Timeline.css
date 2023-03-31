@@ -14,7 +14,7 @@
     background-color: white;
     z-index: 100;
     border: 1px solid var(--twitter-background);
-    padding: 15px 10px;
+    padding: 5px 10px;
 }
 
 .timeline__header>h2 {

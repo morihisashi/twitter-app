@@ -28,7 +28,7 @@ function Sidebar() {
             <SidebarOption text="プロフィール" Icon={PermIdentityIcon} />
             <SidebarOption text="もっと見る" Icon={MoreHorizIcon} />
             {/* ツイートボタン */}
-            <Button variant="outlined" className="sidebar__tweet">ツイートする</Button>
+            <Button variant="outlined" className="sidebar__tweet" fullWidth >ツイートする</Button>
         </div>
     )
 }
