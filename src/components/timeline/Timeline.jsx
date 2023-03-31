@@ -13,11 +13,14 @@ function Timeline() {
             {/* Tweetbox */}
             <TweetBox />
             {/* Post */}
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            <Post
+                displayname="プログラミングチュートリアル"
+                username="Mori_Kyuu1995"
+                verified={true}
+                text="初めてのツイート"
+                avatar="http://shincode.info/wp-content/uploads/2021/12/icon.png"
+                image="https://source.unsplash.com/random"
+            />
 
         </div>
     )

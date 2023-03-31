@@ -7,26 +7,27 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishIcon from '@mui/icons-material/Publish';
 import './Post.css';
 
-function Post() {
+function Post({ displayname, username, verified, text, avatar, image }) {
     return (
         <div className="post">
             <div className="post__avatar">
-                <Avatar />
+                <Avatar src={avatar} />
             </div>
             <div className="post__body">
                 <div className="post__header">
                     <div className="post__headerText">
-                        <h3>プログラミングチュートリアル
+                        <h3>
+                            {displayname}
                             <span className="post__headerSpecial"></span>
                             <VerifiedUserIcon className="post__badge" />
-                            @Shin_Enginner
+                            @{username}
                         </h3>
                     </div>
                     <div className="post__headerDescription">
-                        <p>Reaactなう。</p>
+                        <p>{text}</p>
                     </div>
                 </div>
-                <img src="https://source.unsplash.com/random" />
+                <img src={image} />
                 <div className="post__footer">
                     <ChatBubbleOutlineIcon fontSize="small" />
                     <RepeatIcon fontSize="small" />
