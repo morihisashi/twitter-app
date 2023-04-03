@@ -1,19 +1,14 @@
-import './App.css';
-import Sidebar from './components/sidebar/Sidebar';
-import Timeline from './components/timeline/Timeline';
-import Widgets from './components/widget/Widgets';
+import { Routes, Route } from 'react-router-dom';
+import { HomePage } from './HomePage.jsx';
+import { SignUp } from './components/signup/SignUp.jsx';
 
 function App() {
   return (
     <div className="app">
-      {/* Sidebar */}
-      <Sidebar />
-
-      {/* Timeline */}
-      <Timeline />
-
-      {/* Widget */}
-      <Widgets />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
     </div>
   );
 }
