@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export function SignUp() {
+export function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const auth = getAuth();
     const handleSubmit = (event) => {
         event.preventDefault();
-        createUserWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
                 console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
             });
     };
     const handleChangeEmail = (event) => {
@@ -20,10 +24,9 @@ export function SignUp() {
     const handleChangePassword = (event) => {
         setPassword(event.currentTarget.value);
     };
-
     return (
         <div>
-            <h1>ユーザ登録</h1>
+            <h1>ログイン</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>メールアドレス</label>
@@ -49,5 +52,4 @@ export function SignUp() {
             </form>
         </div>
     );
-};
-
+}

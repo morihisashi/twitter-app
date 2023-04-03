@@ -4,6 +4,7 @@ import Timeline from './components/timeline/Timeline';
 import Widgets from './components/widget/Widgets';
 import React from 'react';
 
+
 export function HomePage() {
     return (
         <div className="app">
@@ -17,4 +18,5 @@ export function HomePage() {
             <Widgets />
         </div>
     )
+
 }
