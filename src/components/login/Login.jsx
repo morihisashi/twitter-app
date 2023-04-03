@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const auth = getAuth();
+    const navigation = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
@@ -12,10 +14,12 @@ export function Login() {
                 // Signed in
                 const user = userCredential.user;
                 console.log(user);
+                navigation("/");
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+            .catch(() => {
+                // const errorCode = error.code;
+                // const errorMessage = error.message;
+                alert('メールアドレスかパスワードが違います');
             });
     };
     const handleChangeEmail = (event) => {
@@ -47,7 +51,7 @@ export function Login() {
                     />
                 </div>
                 <div>
-                    <button>登録</button>
+                    <button>ログイン</button>
                 </div>
             </form>
         </div>
