@@ -12,8 +12,8 @@ export function Login() {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
-                const user = userCredential.user;
-                console.log(user.displayName);
+                // const user = userCredential.user;
+                // console.log(user.displayName);
                 navigation("/");
             })
             .catch(() => {
@@ -28,6 +28,7 @@ export function Login() {
     const handleChangePassword = (event) => {
         setPassword(event.currentTarget.value);
     };
+
     return (
         <div>
             <h1>ログイン</h1>
