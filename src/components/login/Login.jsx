@@ -13,7 +13,7 @@ export function Login() {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                console.log(user);
+                console.log(user.displayName);
                 navigation("/");
             })
             .catch(() => {

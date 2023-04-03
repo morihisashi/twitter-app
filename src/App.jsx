@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={user !== null ? <HomePage /> : <Navigate replace to="/login" />} />
+        <Route path="/" element={user.displayName !== null ? <HomePage /> : <Navigate replace to="/login" />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
