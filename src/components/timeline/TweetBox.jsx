@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './TweetBox.css';
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import db from '../../firebase';
+import ProfileImage from '../../images/kraken.png';
 
 function TweetBox() {
     const [tweetMessage, setTweetMessage] = useState("");
@@ -15,7 +16,7 @@ function TweetBox() {
             username: "Mori_Kyuu1995",
             verified: true,
             text: tweetMessage,
-            avatar: "http://shincode.info/wp-content/uploads/2021/12/icon.png",
+            avatar: { ProfileImage },
             image: tweetImage,
             timestamp: serverTimestamp()
         })
@@ -26,7 +27,7 @@ function TweetBox() {
         <div className="tweetBox">
             <form>
                 <div className="tweetBox__input">
-                    <Avatar />
+                    <Avatar src={ProfileImage} alt="" />
                     <input
                         value={tweetMessage}
                         placeholder="いまどうしている？"
