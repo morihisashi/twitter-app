@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
+import { Button } from '@mui/material';
 
 export function Login() {
     const [email, setEmail] = useState('');
@@ -10,7 +12,7 @@ export function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(() => {
                 // Signed in
                 // const user = userCredential.user;
                 // console.log(user.displayName);
@@ -30,11 +32,11 @@ export function Login() {
     };
 
     return (
-        <div>
-            <h1>ログイン</h1>
+        <div className="login">
+            <h1>Twitter Cloneにログイン</h1>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>メールアドレス</label>
+                <div className="email">
+                    <label>メールアドレス：</label>
                     <input
                         name="email"
                         type="email"
@@ -42,8 +44,8 @@ export function Login() {
                         onChange={(event) => handleChangeEmail(event)}
                     />
                 </div>
-                <div>
-                    <label>パスワード</label>
+                <div className="password">
+                    <label>パスワード：</label>
                     <input
                         name="password"
                         type="password"
@@ -52,7 +54,7 @@ export function Login() {
                     />
                 </div>
                 <div>
-                    <button>ログイン</button>
+                    <Button type="submit" variant="outlined" className="login__btn">ログイン</Button>
                 </div>
             </form>
         </div>
