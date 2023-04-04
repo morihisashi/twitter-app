@@ -10,10 +10,22 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Button } from '@mui/material';
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 
 
 function Sidebar() {
+    const auth = getAuth();
+    const navigation = useNavigate();
+    const handleLogout = () => {
+        signOut(auth).then(() => {
+            console.log('logout success!');
+            navigation("/login");
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
     return (
         <div className="sidebar">
             {/* ツイッターアイコン */}
@@ -29,6 +41,8 @@ function Sidebar() {
             <SidebarOption text="もっと見る" Icon={MoreHorizIcon} />
             {/* ツイートボタン */}
             <Button variant="outlined" className="sidebar__tweet" fullWidth >ツイートする</Button>
+            {/* ログアウトボタン */}
+            <Button variant="outlined" className="sidebar__logout" fullWidth onClick={handleLogout} >ログアウト</Button>
         </div>
     )
 }
