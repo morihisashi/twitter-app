@@ -42,3 +42,23 @@
     width: 300px;
     margin-top: 20px !important;
 }
+
+.login__btn:hover {
+    background-color: blue !important;
+}
+
+.signup__btn {
+    margin-top: 20px !important;
+    background-color: var(--twitter-color) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    border: none !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    width: 300px;
+    margin-top: 20px !important;
+}
+
+.signup__btn:hover {
+    background-color: blue !important;
+}

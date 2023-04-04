@@ -30,6 +30,9 @@ export function Login() {
     const handleChangePassword = (event) => {
         setPassword(event.currentTarget.value);
     };
+    const handleSignup = () => {
+        navigation("/signup");
+    }
 
     return (
         <div className="login">
@@ -57,6 +60,9 @@ export function Login() {
                     <Button type="submit" variant="outlined" className="login__btn">ログイン</Button>
                 </div>
             </form>
+            <div>
+                <Button variant="outlined" className="signup__btn" onClick={handleSignup}>新規登録</Button>
+            </div>
         </div>
     );
 }
