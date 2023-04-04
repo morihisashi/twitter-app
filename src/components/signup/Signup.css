@@ -1,0 +1,76 @@
+.signup {
+    background-color: white;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    width: 600px;
+    height: 800px;
+}
+
+.email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.email>input {
+    height: 20px;
+    width: 200px;
+}
+
+.password {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.password>input {
+    height: 20px;
+}
+
+.user {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.user>input {
+    height: 20px;
+}
+
+.register__btn {
+    margin-top: 20px !important;
+    background-color: var(--twitter-color) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    border: none !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    width: 300px;
+    margin-top: 20px !important;
+}
+
+.register__btn:hover {
+    background-color: blue !important;
+}
+
+.login__btn {
+    margin-top: 20px !important;
+    background-color: var(--twitter-color) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    border: none !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    width: 300px;
+    margin-top: 20px !important;
+}
+
+.register__btn:hover {
+    background-color: blue !important;
+}

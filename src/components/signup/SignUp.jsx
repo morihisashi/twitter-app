@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import './Signup.css';
 
 export function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
+    const navigation = useNavigate();
     const auth = getAuth();
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,6 +20,9 @@ export function SignUp() {
                 updateProfile(auth.currentUser, {
                     displayName: username
                 });
+                navigation("/");
+            }).catch(() => {
+                alert('メールアドレスかパスワードが入力されていません。');
             });
     };
     const handleChangeEmail = (event) => {
@@ -27,13 +34,16 @@ export function SignUp() {
     const handleChangeUsername = (event) => {
         setUsername(event.currentTarget.value);
     };
+    const handleLogin = () => {
+        navigation("/login");
+    }
 
     return (
-        <div>
+        <div className="signup">
             <h1>ユーザ登録</h1>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>メールアドレス</label>
+                <div className="email">
+                    <label>メールアドレス：</label>
                     <input
                         name="email"
                         type="email"
@@ -41,8 +51,8 @@ export function SignUp() {
                         onChange={(event) => handleChangeEmail(event)}
                     />
                 </div>
-                <div>
-                    <label>パスワード</label>
+                <div className="password">
+                    <label>パスワード：</label>
                     <input
                         name="password"
                         type="password"
@@ -50,8 +60,8 @@ export function SignUp() {
                         onChange={(event) => handleChangePassword(event)}
                     />
                 </div>
-                <div>
-                    <label>ユーザー名</label>
+                <div className="user">
+                    <label>ユーザー名：</label>
                     <input
                         name="username"
                         type="text"
@@ -60,9 +70,12 @@ export function SignUp() {
                     />
                 </div>
                 <div>
-                    <button>登録</button>
+                    <Button type="submit" variant="outlined" className="register__btn">登録</Button>
                 </div>
             </form>
+            <div>
+                <Button variant="outlined" className="login__btn" onClick={handleLogin}>戻る</Button>
+            </div>
         </div>
     );
 };
