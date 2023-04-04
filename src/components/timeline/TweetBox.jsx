@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './TweetBox.css';
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import db from '../../firebase';
-import ProfileImage from '../../images/kraken.png';
+import ProfileImage from '../../images/kraken.svg';
 
 function TweetBox() {
     const [tweetMessage, setTweetMessage] = useState("");

@@ -38,7 +38,7 @@ function Timeline() {
                         username={post.username}
                         verified={post.verified}
                         text={post.text}
-                        avatar={post.avatar}
+                        avatar={post.avatar.ProfileImage}
                         image={post.image}
                     />
                 ))}
