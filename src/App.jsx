@@ -2,7 +2,7 @@ import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-
 import { HomePage } from './HomePage.jsx';
 import { SignUp } from './components/signup/SignUp.jsx';
 import { Login } from './components/login/Login.jsx';
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -10,11 +10,12 @@ function App() {
   const location = useLocation();
   useEffect(() => {
     const auth = getAuth();
-    const user = auth.currentUser;
-    if (user !== null) {
-      setUserName(user.displayName);
-      console.log(userName);
-    }
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserName(user.displayName);
+        console.log(userName);
+      }
+    })
   }, [location])
 
   return (
